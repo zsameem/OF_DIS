@@ -635,7 +635,7 @@ void color_image_convolve_hv(color_image_t *dst, const color_image_t *src, const
             dst_red = {width,height,stride,dst->c1}, dst_green = {width,height,stride,dst->c2}, dst_blue = {width,height,stride,dst->c3};
     // horizontal and vertical
     if(horiz_conv != NULL && vert_conv != NULL){
-        float *tmp_data = malloc(sizeof(float)*stride*height);
+        float *tmp_data = (float*)malloc(sizeof(float)*stride*height);
         if(tmp_data == NULL){
 	        fprintf(stderr,"error color_image_convolve_hv(): not enough memory\n");
 	        exit(1);
@@ -669,7 +669,7 @@ void image_convolve_hv(image_t *dst, const image_t *src, const convolution_t *ho
             dst_red = {width,height,stride,dst->c1};
     // horizontal and vertical
     if(horiz_conv != NULL && vert_conv != NULL){
-        float *tmp_data = malloc(sizeof(float)*stride*height);
+        float *tmp_data = (float*)malloc(sizeof(float)*stride*height);
         if(tmp_data == NULL){
           fprintf(stderr,"error image_convolve_hv(): not enough memory\n");
           exit(1);
