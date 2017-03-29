@@ -17,62 +17,45 @@ a slower variant operating on RGB images (`run_*_RGB`) is provided.
 make all
 ```
 
-The code depends on Eigen3 and OpenCV. However, OpenCV is only used for image loading, 
+The code depends on Eigen3 OpenCV and MATLAB. However, OpenCV is only used for image loading, 
 scaling and gradient computation (`run_dense.cpp`). It can easily be replaced by other libraries.
       
-      
-      
+Aditionally P. Dollar's toolbox is required for visualizing the flow. You can get it from [here](https://pdollar.github.io/toolbox/). This is only required for visualizing the flow not for calculating the flow. See `examples/example.m for more information`
+
       
 ## Usage ##
-The interface for all four binaries (`run_*_*`) is the same.
+The interface for all four mex functions (`run_*_*()`) is the same.
 
 VARIANT 1 (Uses operating point 2 of the paper, automatically selects coarsest scale):
 
-` ./run_*_* image1.png image2.png outputfile `
+` output = run_*_*(image1, image2, outputfile) `
 
 
 VARIANT 2 (Manually select operating point X=1-4, automatically selects coarsest scale):
 
-`  ./run_*_* image1.png image2.png outputfile X `
+` output = run_*_*(image1, image2, outputfile, X) `
 
 
-VARIANT 3 (Set all parameters explicitly):
+The optical flow output is a 2-D MATLAB matrix with x and y flows.
 
-` ./run_*_* image1.png image2.png outputfile p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p18 p19 p20`
-
-Example for variant 3 using operating point 2 of the paper:
-
-` ./run_OF_INT in1.png int2.png out.flo 5 3 12 12 0.05 0.95 0 8 0.40 0 1 0 1 10 10 5 1 3 1.6 2  `
-
-
-The optical flow output is saves as .flo file.
-(http://sintel.is.tue.mpg.de/downloads)
-
-The interface for depth from stereo is exactly the same. The output is saves as pfm file.
+The interface for depth from stereo is exactly the same. 
 (http://vision.middlebury.edu/stereo/code/)
 
-
-NOTES:
-1. For better quality, increase the number iterations (param 3/4), use finer scales (param. 2), higher patch overlap (param. 9), more outer TV iterations (param. 17)
-2. L1/Huber cost functions (param. 12) provide better results, but require more iterations (param. 3/4)
-
-
-
+For more information refer to the ` example_1.m ` file in the examples folder.
 ## Bugs and extensions ##
 
-If you find bugs, etc., please feel free to contact me.
-Contact details are available on my webpage.
+If you find bugs, etc., please feel free to contact me at <zsameem@example.com>
+
+Or
+
 http://www.vision.ee.ethz.ch/~kroegert/
-
-
 
 ## History ##
 
 July 2016 	v1.0.0 - Initial Release
 August 2016 	v1.0.1 - Minor Bugfix: Error in L1 and Huber error norm computation.
 
-#CITATION
-
+## CITATION ##
 
 If used this work, please cite:
 
@@ -109,14 +92,3 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
-
-
-
-
-
-
-
-
-
