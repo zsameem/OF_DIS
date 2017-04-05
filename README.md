@@ -28,12 +28,12 @@ The interface for all four mex functions (`run_*_*()`) is the same.
 
 VARIANT 1 (Uses operating point 2 of the paper, automatically selects coarsest scale):
 
-` output = run_*_*(image1, image2, outputfile) `
+` output = run_*_*(image1, image2 ) `
 
 
 VARIANT 2 (Manually select operating point X=1-4, automatically selects coarsest scale):
 
-` output = run_*_*(image1, image2, outputfile, X) `
+` output = run_*_*(image1, image2, X) `
 
 
 The optical flow output is a 2-D MATLAB matrix with x and y flows.
