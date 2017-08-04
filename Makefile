@@ -1,5 +1,5 @@
 MEX=mex
-_CFLAGS=\$CFLAGS -Wall -std=++11 -msse4
+_CFLAGS= -Wall -std=c++11 -msse4 -fPIC
 
 MEXFLAGS=-v 
 INCLUDES=-I/usr/local/include/eigen3
