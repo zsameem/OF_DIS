@@ -20,9 +20,7 @@ make all
 The code depends on Eigen3 OpenCV and MATLAB. However, OpenCV is only used for image loading, 
 scaling and gradient computation (`run_dense.cpp`). It can easily be replaced by other libraries.
       
-Aditionally P. Dollar's toolbox is required for visualizing the flow. You can get it from [here](https://pdollar.github.io/toolbox/). This is only required for visualizing the flow not for calculating the flow. See `examples/example.m for more information`
-
-      
+ 
 ## Usage ##
 The interface for all four mex functions (`run_*_*()`) is the same.
 
