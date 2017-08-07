@@ -37,7 +37,7 @@ tic;
 for i = 2 : nframes
     previous_frame_greyscale = rgb2gray(vid_array(:,:,:,i-1));
     current_frame_greyscale = rgb2gray(vid_array(:,:,:,i));
-    OF_array_coarse(:,:,:,i) = run_OF_INT(current_frame_greyscale, previous_frame_greyscale, 2);
+    OF_array_coarse(:,:,:,i) = run_OF_INT(previous_frame_greyscale, current_frame_greyscale, 2);
     color_OF_array_coarse(:,:,:,i) = flowToColor(OF_array_coarse(:,:,:,i));
 end
 toc;
@@ -50,7 +50,7 @@ tic;
 for i = 2 : nframes
     previous_frame_greyscale = rgb2gray(vid_array(:,:,:,i-1));
     current_frame_greyscale = rgb2gray(vid_array(:,:,:,i));
-    OF_array_fine(:,:,:,i) = run_OF_INT(current_frame_greyscale, previous_frame_greyscale, 4);
+    OF_array_fine(:,:,:,i) = run_OF_INT(previous_frame_greyscale, current_frame_greyscale, 4);
     color_OF_array_fine(:,:,:,i) = flowToColor(OF_array_fine(:,:,:,i));
 end
 toc;
